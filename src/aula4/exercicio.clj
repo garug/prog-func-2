@@ -20,8 +20,7 @@
 (defn products-map
   [data]
   (reduce (fn [acc item]
-            (let [key-item (:item-id item)
-                  amount-item (:amount item)
+            (let [{key-item :item-id amount-item :amount } item
                   acc-value (get acc key-item 0)
                   new-value (+ amount-item acc-value)]
               (assoc acc key-item new-value)))
