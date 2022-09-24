@@ -40,7 +40,7 @@
           data))
 
 ;; retornar o vetor de clientes com a chave `:purchases`. O valor dessa chave sera um vetor contendo mapas com `:item-id` e `:amount`.
-(defn fn2
+(defn clients-with-purchases
   [clients purchases]
   (let [purchases-by-client (purchases-by-client purchases)]
     (map #(assoc % :purchases (get purchases-by-client (:id %) [])) clients)))
@@ -52,4 +52,4 @@
   (above-35-remove data/clients)
   (products-map data/purchases)
   (purchases-by-client data/purchases)
-  (fn2 data/clients data/purchases))
+  (clients-with-purchases data/clients data/purchases))
