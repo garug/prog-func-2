@@ -45,7 +45,7 @@
   (future
     (loop [elapsed-time 0]
       (if (realized? msg-prometida)
-        (println "Mensagem recebida em" elapsed-time "s")
+        (println "Mensagem recebida em" elapsed-time "s. Mensagem recebida:" @msg-prometida)
         (do
           (println "Já se passaram" elapsed-time "s e ainda não recebi a mensagem prometida")
           (pausa 1000)
