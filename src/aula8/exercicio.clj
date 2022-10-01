@@ -24,23 +24,36 @@
 ;=> nil
 
 (defn temporizador [minutos]
-  ;;;
-  )
+  (future
+    (loop [elapsed-time 0]
+      (when (< elapsed-time (minutos->milisegundos minutos))
+        (println (hora-agora))
+        (pausa 1000)
+        (recur (+ elapsed-time 1000))))))
 
+(comment
+  (def my-temp (temporizador 0.25))
+  (future-cancel my-temp))
 
 ;; 2- Criar uma funcao que recebe uma mensagem-prometida,
 ;; entao imprime repetidamente um contador de segundos
-;; at� que uma mensagem seja entregue via uma promise, deve imprimir
+;; at� que uma mensagem seja entregue via uma promise, deve imprimir
 ;; a mensagem e o valor acumulado do contador
 
 (defn imprime-msg-prometida
   [msg-prometida]
   (future
-    ;;;
-    ))
+    (loop [elapsed-time 0]
+      (if (realized? msg-prometida)
+        (println "Mensagem recebida em" elapsed-time "s")
+        (do
+          (println "Já se passaram" elapsed-time "s e ainda não recebi a mensagem prometida")
+          (pausa 1000)
+          (recur (inc elapsed-time)))))))
 
-(def mensagem-prometida (promise))
+(comment
+  (def mensagem-prometida (promise))
 
-(imprime-msg-prometida mensagem-prometida)
+  (imprime-msg-prometida mensagem-prometida)
 
-(deliver mensagem-prometida "Oi!")
+  (deliver mensagem-prometida "Oi!"))
