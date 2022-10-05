@@ -51,3 +51,4 @@
   (retorna-compras-por-id "1" data/mapa)
   (adiciona-nova-compra-por-id "1" data/mapa {:item "mesa" :valor 250})
   (aplica-desconto-primeira-compra "1" data/mapa)
+  )

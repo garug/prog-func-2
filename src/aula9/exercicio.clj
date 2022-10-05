@@ -47,4 +47,3 @@
   (adiciona-saldo-por-id banco 8 8)
   (remove-saldo-por-id banco 8 8)
   (transacao banco + 8 10)
-  )

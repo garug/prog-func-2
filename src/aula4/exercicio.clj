@@ -52,4 +52,3 @@
   (above-35-remove data/clients)
   (products-map data/purchases)
   (purchases-by-client data/purchases)
-  (clients-with-purchases data/clients data/purchases))
