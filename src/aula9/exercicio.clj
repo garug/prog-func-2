@@ -16,7 +16,7 @@
 ;; 2 crie uma função capaz de trazer um cliente de acordo com o seu id
 (defn busca-cliente-por-id
   [banco id]
-  (first (filter #(= id (:id %)) @banco)))
+  (take 1 (filter #(= id (:id %)) @banco)))
 
 ;; 3 crie uma função que, dado um valor adiciona esse valor do saldo existente de um cliente dado id. A função deve printar o valor anterior do saldo
 (defn adiciona-saldo-por-id
