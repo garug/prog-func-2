@@ -46,4 +46,4 @@
   (busca-cliente-por-id banco 70)
   (adiciona-saldo-por-id banco 8 8)
   (remove-saldo-por-id banco 8 8)
-  (transacao banco + 8 10)
+  (transacao banco + 8 10))
